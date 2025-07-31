@@ -310,81 +310,143 @@ WebSurfer99: "First! Also, great site!"
             // Create GSAP timeline for the kayak roll animation
             const rollTimeline = gsap.timeline({ repeat: -1 }); // -1 means infinite loop
             
-            // Store original body background
-            const originalBodyBg = document.body.style.background;
+            // Add underwater overlay div
+            const underwaterOverlay = document.createElement('div');
+            underwaterOverlay.id = 'underwater-overlay';
+            underwaterOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 999;
+                opacity: 0;
+                background: linear-gradient(to bottom, 
+                    rgba(0, 50, 100, 0.7) 0%,
+                    rgba(0, 80, 150, 0.8) 30%,
+                    rgba(0, 60, 120, 0.9) 60%,
+                    rgba(0, 30, 60, 0.95) 100%
+                );
+            `;
+            document.body.appendChild(underwaterOverlay);
+
+            // Add sunlight overlay div
+            const sunlightOverlay = document.createElement('div');
+            sunlightOverlay.id = 'sunlight-overlay';
+            sunlightOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 998;
+                opacity: 0;
+                background: radial-gradient(circle at 30% 20%, 
+                    rgba(255, 255, 200, 0.4) 0%,
+                    rgba(255, 255, 150, 0.2) 40%,
+                    transparent 70%
+                );
+            `;
+            document.body.appendChild(sunlightOverlay);
             
-            // Function to create underwater effect
-            function underwaterEffect(isUnderwater) {
-                if (isUnderwater) {
-                    // Underwater colors - deep blue/teal gradient
-                    gsap.to("body", {
-                        duration: 0.5,
-                        background: "linear-gradient(to bottom, #006994, #00557F, #003D5B, #002838)",
+            // Function to create environmental effects
+            function setEnvironment(phase) {
+                if (phase === 'underwater') {
+                    // Underwater effect
+                    gsap.to("#underwater-overlay", {
+                        duration: 0.8,
+                        opacity: 1,
                         ease: "power2.inOut"
                     });
-                    // Add wave effect to roll container
+                    gsap.to("#sunlight-overlay", {
+                        duration: 0.8,
+                        opacity: 0,
+                        ease: "power2.inOut"
+                    });
+                    // Make everything blue-tinted
                     gsap.to("#roll-container", {
-                        duration: 0.5,
-                        backgroundColor: "#004466",
-                        boxShadow: "inset 0 0 50px #00CCFF, 0 0 20px #0099CC",
+                        duration: 0.8,
+                        backgroundColor: "#003366",
+                        boxShadow: "inset 0 0 100px rgba(0, 100, 200, 0.5), 0 0 50px rgba(0, 150, 255, 0.3)",
+                        filter: "brightness(0.7) contrast(1.2) saturate(1.5)",
                         ease: "power2.inOut"
                     });
-                } else {
-                    // Return to normal
+                    // Add subtle wave motion
                     gsap.to("body", {
-                        duration: 0.5,
-                        background: originalBodyBg || "url('https://web.archive.org/web/20090829171408im_/http://geocities.com/SouthBeach/Boardwalk/4103/starback.gif')",
+                        duration: 2,
+                        backgroundPosition: "0 10px",
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    });
+                } else if (phase === 'surface') {
+                    // Surface/sunlight effect
+                    gsap.to("#underwater-overlay", {
+                        duration: 0.8,
+                        opacity: 0,
                         ease: "power2.inOut"
                     });
+                    gsap.to("#sunlight-overlay", {
+                        duration: 0.8,
+                        opacity: 1,
+                        ease: "power2.inOut"
+                    });
+                    // Bright sunny colors
                     gsap.to("#roll-container", {
-                        duration: 0.5,
+                        duration: 0.8,
                         backgroundColor: "#87CEEB",
-                        boxShadow: "none",
+                        boxShadow: "0 0 50px rgba(255, 255, 200, 0.5), inset 0 0 30px rgba(255, 255, 150, 0.3)",
+                        filter: "brightness(1.2) contrast(1.1) saturate(1.2)",
                         ease: "power2.inOut"
                     });
+                    gsap.killTweensOf("body");
+                    gsap.set("body", { backgroundPosition: "0 0" });
                 }
             }
             
-            // Animate each image in sequence
+            // Animate each image in sequence with proper timing
+            const imageDuration = 0.5; // Duration for fade in/out
+            const imageDisplay = 0.8; // How long each image stays visible
+            
             for (let i = 1; i <= 8; i++) {
-                rollTimeline
-                    .to(`#roll-img-${i}`, {
-                        duration: 0.1,
-                        opacity: 1,
-                        ease: "power2.in",
-                        onStart: function() {
-                            // Check if we need underwater effect (images 4-6)
-                            if (i >= 4 && i <= 6) {
-                                underwaterEffect(true);
-                            } else if (i === 7) {
-                                underwaterEffect(false);
+                // Store the current index for closure
+                (function(index) {
+                    rollTimeline
+                        .to(`#roll-img-${index}`, {
+                            duration: imageDuration,
+                            opacity: 1,
+                            ease: "power2.inOut",
+                            onStart: function() {
+                                // Determine environment based on image
+                                if (index <= 3) {
+                                    setEnvironment('surface'); // Above water
+                                } else if (index >= 4 && index <= 6) {
+                                    setEnvironment('underwater'); // Under water
+                                } else {
+                                    setEnvironment('surface'); // Coming back up
+                                }
                             }
-                        }
-                    })
-                    .to(`#roll-img-${i}`, {
-                        duration: 0.1,
-                        opacity: 0,
-                        ease: "power2.out"
-                    }, "+=0.3"); // Show each image for 0.3 seconds
+                        })
+                        .to(`#roll-img-${index}`, {
+                            duration: imageDuration,
+                            opacity: 0,
+                            ease: "power2.inOut"
+                        }, `+=${imageDisplay}`);
+                })(i);
             }
             
-            // Add some extra effects for fun
-            gsap.to("#roll-container", {
-                duration: 20,
-                rotation: 360,
-                repeat: -1,
-                ease: "none"
-            });
-            
-            // Make the container pulse during underwater sections
+            // Remove the rotation effect - too distracting
+            // Just keep a gentle pulse
             const pulseTimeline = gsap.timeline({ repeat: -1 });
             pulseTimeline.to("#roll-container", {
-                duration: 2,
-                scale: 1.05,
+                duration: 3,
+                scale: 1.02,
                 ease: "power1.inOut"
             })
             .to("#roll-container", {
-                duration: 2,
+                duration: 3,
                 scale: 1,
                 ease: "power1.inOut"
             });
