@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>!!!XTREME KAYAK DEALZ!!! - Your #1 Source for RADICAL Water Vessels!!!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="keywords" content="kayak,deals,extreme,water,sports,SALE,discount,paddling">
+    <meta name="description" content="The HOTTEST kayak deals on the WORLD WIDE WEB!!!">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Password Protection Check -->
+    <script>
+        // Check if user is authenticated
+        if (!sessionStorage.getItem('kayakAuth')) {
+            // Redirect to password page if not authenticated
+            window.location.href = 'password.html';
+        }
+    </script>
+    <!-- Scrolling marquee banner -->
+    <marquee behavior="scroll" direction="left" scrollamount="10" bgcolor="#FF00FF">
+        <font size="7" color="#00FF00">
+            🚣‍♂️ FLASH SALE!!! 🚣‍♂️ ALL KAYAKS 99% OFF!!! 🚣‍♂️ LIMITED TIME ONLY!!! 🚣‍♂️ ACT NOW!!! 🚣‍♂️
+        </font>
+    </marquee>
+
+    <!-- Visitor counter -->
+    <center>
+        <img src="https://web.archive.org/web/20090829024442im_/http://geocities.com/SiliconValley/5682/counter.gif" alt="visitor counter">
+        <br>
+        <font color="#FF0000" size="2">You are visitor number: <blink>999,999</blink></font>
+    </center>
+
+    <!-- Main header with flame gif -->
+    <center>
+        <h1 class="fire-text">
+            <img src="https://web.archive.org/web/20090830103658im_/http://www.geocities.com/SouthBeach/Breakers/5687/flame.gif" width="50">
+            KAYAK KINGDOM
+            <img src="https://web.archive.org/web/20090830103658im_/http://www.geocities.com/SouthBeach/Breakers/5687/flame.gif" width="50">
+        </h1>
+        <h2 class="rainbow">Where Your Paddling Dreams Come TRUE!!!</h2>
+    </center>
+
+    <!-- Navigation table -->
+    <center>
+    <table border="5" cellpadding="10" cellspacing="5" bgcolor="#00FFFF">
+        <tr>
+            <td bgcolor="#FF0000"><a href="#home">HOME</a></td>
+            <td bgcolor="#00FF00"><a href="#products">PRODUCTS</a></td>
+            <td bgcolor="#FFFF00"><a href="#deals">HOT DEALZ</a></td>
+            <td bgcolor="#FF00FF"><a href="#about">ABOUT US</a></td>
+            <td bgcolor="#FFA500"><a href="#contact">CONTACT</a></td>
+            <td bgcolor="#00CED1"><a href="#guestbook">GUESTBOOK</a></td>
+        </tr>
+    </table>
+    </center>
+
+    <!-- Under construction gif -->
+    <center>
+        <img src="https://web.archive.org/web/20090829194839im_/http://www.geocities.com/Heartland/Plains/7649/construction.gif" width="100">
+        <br>
+        <font color="#FF0000" size="3"><blink>SITE UNDER CONSTRUCTION - CHECK BACK DAILY FOR NEW DEALS!</blink></font>
+    </center>
+
+    <!-- Main content area -->
+    <table width="100%" border="0" cellpadding="20">
+        <tr>
+            <!-- Left sidebar -->
+            <td width="200" valign="top" bgcolor="#FFFF00">
+                <center>
+                <h3>HOT LINKS!</h3>
+                <img src="https://web.archive.org/web/20091027095430im_/http://www.geocities.com/Heartland/Bluffs/4935/new.gif">
+                <br><br>
+                <a href="#">Yahoo!</a><br>
+                <a href="#">AltaVista</a><br>
+                <a href="#">Netscape</a><br>
+                <a href="#">Ask Jeeves</a><br>
+                <br>
+                <img src="https://web.archive.org/web/20090830192139im_/http://geocities.com/heartland/prairie/9433/email.gif">
+                <br>
+                <font size="2">Email me!</font>
+                <br><br>
+                <!-- Webring -->
+                <table border="2" bgcolor="#00FF00">
+                    <tr><td>
+                    <center>
+                    <font size="2">
+                    EXTREME SPORTS<br>WEBRING<br>
+                    [<a href="#">Prev</a>]
+                    [<a href="#">Random</a>]
+                    [<a href="#">Next</a>]
+                    </font>
+                    </center>
+                    </td></tr>
+                </table>
+                </center>
+            </td>
+
+            <!-- Main content -->
+            <td valign="top">
+                <h2 id="home" class="gradient-bg">WELCOME TO KAYAK KINGDOM!</h2>
+                
+                <table cellpadding="10" cellspacing="0" border="3" bgcolor="#FF69B4">
+                    <tr>
+                        <td>
+                            <font size="4" face="Comic Sans MS">
+                                Do YOU love WATER? Do YOU love BOATS? Do YOU love SAVING MONEY???<br><br>
+                                Then you've come to the RIGHT PLACE, my friend!!!<br><br>
+                                We've got KAYAKS of all shapes and sizes! Red ones! Blue ones! 
+                                <span class="rainbow">RAINBOW ONES!!!</span><br><br>
+                                <center>
+                                    <img src="https://web.archive.org/web/20090830173110im_/http://geocities.com/Colosseum/Track/8808/boom.gif">
+                                    <font size="6" color="#FF0000"><b>MIND = BLOWN</b></font>
+                                    <img src="https://web.archive.org/web/20090830173110im_/http://geocities.com/Colosseum/Track/8808/boom.gif">
+                                </center>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- KAYAK ROLL ANIMATION SECTION -->
+                <center>
+                    <h2 class="gradient-bg">🌊 WITNESS THE EPIC KAYAK ROLL! 🌊</h2>
+                    <div id="roll-container" style="position: relative; width: 600px; height: 400px; margin: 30px auto; border: 5px ridge #00FFFF; background-color: #87CEEB; overflow: hidden;">
+                        <img id="roll-img-1" class="roll-image" src="Roll/1.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-2" class="roll-image" src="Roll/2.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-3" class="roll-image" src="Roll/3.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-4" class="roll-image" src="Roll/4.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-5" class="roll-image" src="Roll/5.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-6" class="roll-image" src="Roll/6.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-7" class="roll-image" src="Roll/7.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-8" class="roll-image" src="Roll/8.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                    </div>
+                    <font size="4" color="#FF00FF"><blink>EXTREME ROLLING ACTION!</blink></font>
+                </center>
+
+                <h2 id="products" class="fire-text">OUR RADICAL PRODUCTS!</h2>
+                
+                <center>
+                <table border="5" cellpadding="15" bgcolor="#00FF00">
+                    <tr>
+                        <td bgcolor="#FF00FF">
+                            <center>
+                            <h3>The MEGA DESTROYER 3000</h3>
+                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <br><br>
+                            <font size="5" color="#FF0000"><s>$2999.99</s></font><br>
+                            <font size="6" color="#00FF00"><blink>NOW ONLY $29.99!!!</blink></font><br>
+                            <input type="button" value="BUY NOW!!!" onclick="alert('CONGRATULATIONS! You won a FREE screensaver!')">
+                            </center>
+                        </td>
+                        <td bgcolor="#00FFFF">
+                            <center>
+                            <h3>The SPEED DEMON XL</h3>
+                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <br><br>
+                            <font size="5" color="#FF0000"><s>$3999.99</s></font><br>
+                            <font size="6" color="#FF00FF"><blink>NOW ONLY $39.99!!!</blink></font><br>
+                            <input type="button" value="BUY NOW!!!" onclick="alert('ERROR 404: Kayak not found! Just kidding! Add to cart!')">
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFF00">
+                            <center>
+                            <h3>The FAMILY FLOATER</h3>
+                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <br><br>
+                            <font size="5" color="#FF0000"><s>$1999.99</s></font><br>
+                            <font size="6" color="#0000FF"><blink>NOW ONLY $19.99!!!</blink></font><br>
+                            <input type="button" value="BUY NOW!!!" onclick="alert('Thank you for your purchase! Please allow 6-8 weeks for delivery via carrier pigeon.')">
+                            </center>
+                        </td>
+                        <td bgcolor="#FFA500">
+                            <center>
+                            <h3>The MYSTERY KAYAK???</h3>
+                            <img src="https://web.archive.org/web/20090829002308im_/http://geocities.com/Area51/Hollow/1883/alienufo.gif" width="150">
+                            <br><br>
+                            <font size="5" color="#FF0000"><s>$?????.??</s></font><br>
+                            <font size="6" color="#00FF00"><blink>NOW ONLY $9.99!!!</blink></font><br>
+                            <input type="button" value="RISK IT!!!" onclick="alert('You have unlocked the ALIEN KAYAK! It floats... IN SPACE!')">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                </center>
+
+                <h2 id="deals" class="gradient-bg">🔥🔥🔥 TODAY'S HOT DEALZ!!! 🔥🔥🔥</h2>
+                
+                <marquee behavior="alternate" bgcolor="#FF0000">
+                    <font size="5" color="#FFFF00">
+                        BUY 1 KAYAK GET 17 FREE!!! | FREE PADDLE WITH EVERY PURCHASE!!! | WE'RE PRACTICALLY GIVING THEM AWAY!!!
+                    </font>
+                </marquee>
+
+                <center>
+                <img src="https://web.archive.org/web/20090829173932im_/http://geocities.com/SunsetStrip/Studio/4764/hot.gif">
+                <img src="https://web.archive.org/web/20090829173932im_/http://geocities.com/SunsetStrip/Studio/4764/hot.gif">
+                <img src="https://web.archive.org/web/20090829173932im_/http://geocities.com/SunsetStrip/Studio/4764/hot.gif">
+                </center>
+
+                <h2 id="about">ABOUT KAYAK KINGDOM</h2>
+                
+                <table border="3" cellpadding="10" bgcolor="#00CED1">
+                    <tr>
+                        <td>
+                            <font face="Arial" size="3">
+                                Founded in 1997 by extreme sports enthusiast BRAD "THE PADDLE" JOHNSON, 
+                                Kayak Kingdom has been serving the RADICAL kayaking community for over 
+                                <blink>5 YEARS!!!</blink><br><br>
+                                
+                                Our motto: <font size="5" color="#FF0000"><i>"If it floats, we've got it!"</i></font><br><br>
+                                
+                                We're located in beautiful downtown XTREME CITY, right next to the 
+                                abandoned RadioShack and across from Big Bob's Bait Shop!<br><br>
+                                
+                                <center>
+                                    <img src="https://web.archive.org/web/20090829091612im_/http://geocities.com/Heartland/7134/usaflag.gif">
+                                    <br>
+                                    <font size="2">PROUDLY AMERICAN OWNED & OPERATED!</font>
+                                </center>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+
+                <h2 id="contact">CONTACT THE KAYAK KING!</h2>
+                
+                <center>
+                <table border="5" cellpadding="20" bgcolor="#FF69B4">
+                    <tr>
+                        <td>
+                            <font size="4">
+                                📧 Email: kayakking@hotmail.com<br>
+                                ☎️ Phone: 1-800-KAYAKZZ<br>
+                                📠 Fax: 1-800-KAYAK-FX<br>
+                                📟 Pager: 555-PADDLE<br>
+                                🏪 Visit our showroom: 123 Splash Street<br><br>
+                                
+                                <form>
+                                    <font color="#0000FF">Join our mailing list for DAILY DEALS!</font><br>
+                                    Email: <input type="text" name="email" size="20">
+                                    <input type="submit" value="SIGN ME UP!" onclick="alert('Thanks! Check your AOL inbox for confirmation!'); return false;">
+                                </form>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+                </center>
+
+                <h2 id="guestbook">SIGN OUR GUESTBOOK!</h2>
+                
+                <center>
+                <textarea rows="10" cols="50">
+CoolDude87: "Best kayaks EVER! I bought 12!"
+PaddleMaster2000: "RADICAL DEALS BRO!"
+xXx_KayakQueen_xXx: "My kayak came with a free dolphin! 5 stars!"
+WebSurfer99: "First! Also, great site!"
+                </textarea>
+                <br>
+                <input type="button" value="ADD YOUR MESSAGE!" onclick="alert('Thanks for signing our guestbook! Your message will appear after approval by the webmaster!')">
+                </center>
+
+            </td>
+
+            <!-- Right sidebar -->
+            <td width="200" valign="top" bgcolor="#00FF00">
+                <center>
+                <h3>AWARDS!</h3>
+                <img src="https://web.archive.org/web/20090830110653im_/http://geocities.com/Area51/Shire/5150/award.gif"><br>
+                <font size="2">Cool Site Award</font><br><br>
+                
+                <img src="https://web.archive.org/web/20090829091529im_/http://geocities.com/Heartland/6459/award.gif"><br>
+                <font size="2">Brad's Pick!</font><br><br>
+                
+                <h3>SPONSORS!</h3>
+                <img src="https://web.archive.org/web/20090821155711im_/http://www.geocities.com/Heartland/Hills/5115/netscap4.gif"><br>
+                <font size="2">Best viewed in<br>Netscape 4.0!</font><br><br>
+                
+                <img src="https://web.archive.org/web/20091027063740im_/http://geocities.com/SiliconValley/Bay/4857/ie_animated.gif"><br>
+                <font size="2">IE Users<br>Welcome Too!</font><br><br>
+                
+                <h3>WEATHER!</h3>
+                <img src="https://web.archive.org/web/20090829170533im_/http://geocities.com/Heartland/Acres/9121/weather.gif"><br>
+                <font size="2">Perfect for<br>kayaking!</font>
+                </center>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <hr>
+    <center>
+        <font size="2">
+            Copyright © 2003 Kayak Kingdom | All Rights Reserved | 
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | 
+            <a href="#">Site Map</a><br>
+            This site is not affiliated with any actual kayak manufacturers<br>
+            <img src="https://web.archive.org/web/20090902062831im_/http://www.geocities.com/Area51/Dimension/1421/madewithnotepad.gif">
+        </font>
+    </center>
+
+    <!-- Background MIDI music (commented out but classic!) -->
+    <!-- <embed src="awesome_kayak_song.mid" autostart="true" hidden="true" loop="true"> -->
+
+    <!-- GSAP Animation Script -->
+    <script>
+        // Wait for page to load
+        window.addEventListener('load', function() {
+            // Create GSAP timeline for the kayak roll animation
+            const rollTimeline = gsap.timeline({ repeat: -1 }); // -1 means infinite loop
+            
+            // Store original body background
+            const originalBodyBg = document.body.style.background;
+            
+            // Function to create underwater effect
+            function underwaterEffect(isUnderwater) {
+                if (isUnderwater) {
+                    // Underwater colors - deep blue/teal gradient
+                    gsap.to("body", {
+                        duration: 0.5,
+                        background: "linear-gradient(to bottom, #006994, #00557F, #003D5B, #002838)",
+                        ease: "power2.inOut"
+                    });
+                    // Add wave effect to roll container
+                    gsap.to("#roll-container", {
+                        duration: 0.5,
+                        backgroundColor: "#004466",
+                        boxShadow: "inset 0 0 50px #00CCFF, 0 0 20px #0099CC",
+                        ease: "power2.inOut"
+                    });
+                } else {
+                    // Return to normal
+                    gsap.to("body", {
+                        duration: 0.5,
+                        background: originalBodyBg || "url('https://web.archive.org/web/20090829171408im_/http://geocities.com/SouthBeach/Boardwalk/4103/starback.gif')",
+                        ease: "power2.inOut"
+                    });
+                    gsap.to("#roll-container", {
+                        duration: 0.5,
+                        backgroundColor: "#87CEEB",
+                        boxShadow: "none",
+                        ease: "power2.inOut"
+                    });
+                }
+            }
+            
+            // Animate each image in sequence
+            for (let i = 1; i <= 8; i++) {
+                rollTimeline
+                    .to(`#roll-img-${i}`, {
+                        duration: 0.1,
+                        opacity: 1,
+                        ease: "power2.in",
+                        onStart: function() {
+                            // Check if we need underwater effect (images 4-6)
+                            if (i >= 4 && i <= 6) {
+                                underwaterEffect(true);
+                            } else if (i === 7) {
+                                underwaterEffect(false);
+                            }
+                        }
+                    })
+                    .to(`#roll-img-${i}`, {
+                        duration: 0.1,
+                        opacity: 0,
+                        ease: "power2.out"
+                    }, "+=0.3"); // Show each image for 0.3 seconds
+            }
+            
+            // Add some extra effects for fun
+            gsap.to("#roll-container", {
+                duration: 20,
+                rotation: 360,
+                repeat: -1,
+                ease: "none"
+            });
+            
+            // Make the container pulse during underwater sections
+            const pulseTimeline = gsap.timeline({ repeat: -1 });
+            pulseTimeline.to("#roll-container", {
+                duration: 2,
+                scale: 1.05,
+                ease: "power1.inOut"
+            })
+            .to("#roll-container", {
+                duration: 2,
+                scale: 1,
+                ease: "power1.inOut"
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+/* XTREME KAYAK KINGDOM STYLESHEET - MAXIMUM STYLE!!! */
+
+body {
+    background-image: url('https://web.archive.org/web/20090829171408im_/http://geocities.com/SouthBeach/Boardwalk/4103/starback.gif');
+    background-repeat: repeat;
+    font-family: "Comic Sans MS", "Arial", cursive;
+    margin: 0;
+    padding: 0;
+    cursor: url('https://web.archive.org/web/20091027104754im_/http://geocities.com/heartland/prairie/2574/paddle.gif'), auto;
+}
+
+/* Links with awesome hover effects */
+a {
+    color: #0000FF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FF0000;
+    text-decoration: blink;
+    font-size: 150%;
+    background-color: #FFFF00;
+}
+
+a:visited {
+    color: #800080;
+}
+
+/* Fire text effect */
+.fire-text {
+    font-size: 48px;
+    color: #FF0000;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #FF4500, 0 0 7px #FF6347, 0 0 10px #FF0000;
+    animation: fire 1s ease-in-out infinite alternate;
+}
+
+@keyframes fire {
+    from { text-shadow: 0 0 3px #FF0000, 0 0 5px #FF4500, 0 0 7px #FF6347, 0 0 10px #FF0000; }
+    to { text-shadow: 0 0 5px #FF4500, 0 0 7px #FF6347, 0 0 10px #FF0000, 0 0 15px #FFD700; }
+}
+
+/* Rainbow text animation */
+.rainbow {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s ease-in-out infinite;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@keyframes rainbow {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+    background: linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF);
+    padding: 10px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+    border: 5px ridge #FFD700;
+}
+
+/* Blink animation (for browsers that don't support the blink tag) */
+blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Table styles */
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    box-shadow: 5px 5px 10px #000000;
+}
+
+td {
+    padding: 10px;
+    border: 2px solid #000000;
+}
+
+/* Input button styles */
+input[type="button"], input[type="submit"] {
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    border: 3px outset #FFD700;
+    color: #000000;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 15px;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    border: 3px inset #FF4500;
+    transform: scale(1.1);
+}
+
+input[type="button"]:active, input[type="submit"]:active {
+    transform: scale(0.95);
+}
+
+/* Text input styles */
+input[type="text"], textarea {
+    border: 3px inset #C0C0C0;
+    background-color: #FFFFFF;
+    font-family: "Courier New", monospace;
+    padding: 5px;
+}
+
+/* Scrollbar customization for that retro look */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FF00FF;
+    border: 2px inset #C0C0C0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00FFFF, #0000FF);
+    border: 2px outset #C0C0C0;
+}
+
+/* Marquee styles */
+marquee {
+    border: 3px ridge #FFD700;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* HR styles */
+hr {
+    border: none;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #FF00FF, #00FFFF, #FFFF00, transparent);
+    margin: 20px 0;
+}
+
+/* Special effects for headings */
+h1 {
+    font-size: 48px;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: #FF0000;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+/* Image effects */
+img {
+    border: 3px ridge #C0C0C0;
+    margin: 5px;
+}
+
+img:hover {
+    filter: brightness(150%) contrast(150%);
+    transform: rotate(5deg) scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* Center tag enhancement */
+center {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* Font tag overrides for maximum impact */
+font[size="7"] {
+    font-size: 48px !important;
+}
+
+font[size="6"] {
+    font-size: 36px !important;
+}
+
+font[size="5"] {
+    font-size: 28px !important;
+}
+
+font[size="4"] {
+    font-size: 20px !important;
+}
+
+font[size="3"] {
+    font-size: 16px !important;
+}
+
+font[size="2"] {
+    font-size: 14px !important;
+}
+
+/* Special animation for mystery kayak */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Pulsing effect for hot deals */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Page load animation */
+body {
+    animation: pageLoad 1s ease-in;
+}
+
+@keyframes pageLoad {
+    from { 
+        opacity: 0;
+        transform: scale(0.5) rotate(180deg);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
