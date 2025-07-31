@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🐻 SECRET BEAR BAKERY ZONE 🐻</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background: repeating-linear-gradient(
+                45deg,
+                #FF69B4,
+                #FF69B4 10px,
+                #00CED1 10px,
+                #00CED1 20px
+            );
+            overflow-x: hidden;
+        }
+        
+        .bear-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .clothesline {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8B4513;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+        
+        .pants {
+            position: absolute;
+            top: 30px;
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(to bottom, #4169E1 0%, #4169E1 70%, #191970 70%, #191970 100%);
+            border: 2px solid #000;
+            transform-origin: top center;
+            animation: swing 3s ease-in-out infinite;
+        }
+        
+        .pants::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            width: 60px;
+            height: 20px;
+            background: #8B4513;
+            clip-path: polygon(20% 0%, 40% 100%, 60% 100%, 80% 0%);
+        }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .trolley {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            width: 150px;
+            height: 80px;
+            background: #C0C0C0;
+            border: 3px solid #696969;
+            transform-origin: top center;
+            animation: trolleySwing 4s ease-in-out infinite;
+        }
+        
+        .trolley::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 2px;
+            height: 50px;
+            background: #8B4513;
+            transform: translateX(-50%);
+        }
+        
+        .trolley::after {
+            content: '🛒';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+        }
+        
+        @keyframes trolleySwing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+        
+        .bear {
+            position: absolute;
+            font-size: 80px;
+            animation: bearDance 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bearDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .plate {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #FFFFFF 60%, #F0F0F0 80%, #D3D3D3 100%);
+            border-radius: 50%;
+            border: 3px solid #A9A9A9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .powder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 40px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+            filter: blur(2px);
+            opacity: 0.9;
+        }
+        
+        .sparkle {
+            position: absolute;
+            color: #FFFFFF;
+            animation: sparkle 1s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 48px;
+            color: #FF1493;
+            text-shadow: 3px 3px 0 #FFD700, 6px 6px 0 #FF69B4;
+            animation: wobble 2s infinite;
+            margin: 100px 0 50px 0;
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        
+        .secret-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            padding: 20px;
+            border: 5px ridge #FF1493;
+            border-radius: 20px;
+            text-align: center;
+            animation: pulse 1s infinite;
+        }
+        
+        .floating-text {
+            position: absolute;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 10s infinite linear;
+        }
+        
+        @keyframes float {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(calc(100vw + 100px)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bear-container">
+        <!-- Clothesline with pants -->
+        <div class="clothesline"></div>
+        <div class="pants" style="left: 20%;"></div>
+        <div class="pants" style="left: 40%; animation-delay: 0.5s;"></div>
+        <div class="pants" style="left: 60%; animation-delay: 1s;"></div>
+        <div class="pants" style="left: 80%; animation-delay: 1.5s;"></div>
+        
+        <!-- Hanging trolley -->
+        <div class="trolley"></div>
+        
+        <h1>🐻 BEAR'S BAKERY POWDER PARTY! 🐻</h1>
+        
+        <!-- Bears with plates -->
+        <div class="bear" style="top: 300px; left: 10%;">🐻</div>
+        <div class="plate" style="top: 400px; left: 8%;">
+            <div class="powder"></div>
+            <div class="sparkle" style="top: 30%; left: 30%;">✨</div>
+            <div class="sparkle" style="top: 50%; left: 70%; animation-delay: 0.3s;">✨</div>
+            <div class="sparkle" style="top: 70%; left: 40%; animation-delay: 0.6s;">✨</div>
+        </div>
+        
+        <div class="bear" style="top: 350px; left: 30%; animation-delay: 0.5s;">🐻</div>
+        <div class="plate" style="top: 450px; left: 28%;">
+            <div class="powder"></div>
+            <div class="sparkle" style="top: 40%; left: 50%;">✨</div>
+        </div>
+        
+        <div class="bear" style="top: 300px; left: 50%; animation-delay: 1s;">🐻</div>
+        <div class="plate" style="top: 400px; left: 48%;">
+            <div class="powder"></div>
+            <div class="sparkle" style="top: 60%; left: 60%; animation-delay: 0.2s;">✨</div>
+        </div>
+        
+        <div class="bear" style="top: 350px; left: 70%; animation-delay: 1.5s;">🐻</div>
+        <div class="plate" style="top: 450px; left: 68%;">
+            <div class="powder"></div>
+            <div class="sparkle" style="top: 35%; left: 45%; animation-delay: 0.4s;">✨</div>
+        </div>
+        
+        <!-- Floating text -->
+        <div class="floating-text" style="top: 200px; color: #FF00FF;">PREMIUM BAKING POWDER!</div>
+        <div class="floating-text" style="top: 250px; color: #00FF00; animation-delay: 3s;">100% ORGANIC FLOUR!</div>
+        <div class="floating-text" style="top: 550px; color: #FFD700; animation-delay: 6s;">BEARS LOVE BAKING!</div>
+        
+        <center>
+            <marquee behavior="alternate" bgcolor="#FF69B4" style="margin-top: 100px;">
+                <font size="6" color="#FFFF00">
+                    🧁 WORLD'S FINEST BAKING INGREDIENTS! 🧁 BEARS KNOW BEST! 🧁 SECRET RECIPE! 🧁
+                </font>
+            </marquee>
+        </center>
+        
+        <div class="secret-message">
+            <h2 style="margin: 0; color: #8B0000;">YOU FOUND THE SECRET BEAR ZONE!</h2>
+            <p style="margin: 10px 0; font-size: 18px;">
+                <b>Markus IS a better name!</b><br>
+                The bears are just making cupcakes, obviously! 🧁
+            </p>
+            <a href="index.html" style="color: #0000FF; font-size: 20px;">← Back to Kayaks</a>
+        </div>
+        
+        <!-- Extra decorative elements -->
+        <img src="https://web.archive.org/web/20090830110312im_/http://geocities.com/Heartland/Ranch/7269/bearsign.gif" 
+             style="position: absolute; top: 150px; right: 20px;" width="100">
+        <img src="https://web.archive.org/web/20090821234948im_/http://www.geocities.com/Heartland/Meadows/6456/spinning_star.gif" 
+             style="position: absolute; bottom: 150px; left: 20px;" width="80">
+        <img src="https://web.archive.org/web/20090821234948im_/http://www.geocities.com/Heartland/Meadows/6456/spinning_star.gif" 
+             style="position: absolute; bottom: 150px; right: 20px;" width="80">
+    </div>
+    
+    <script>
+        // Make bears interactive
+        document.querySelectorAll('.bear').forEach(bear => {
+            bear.addEventListener('click', function() {
+                this.style.transform = 'scale(1.5) rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 1000);
+                
+                // Create explosion of sparkles
+                for (let i = 0; i < 10; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = '✨';
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.left = this.style.left;
+                    sparkle.style.top = this.style.top;
+                    sparkle.style.fontSize = '30px';
+                    sparkle.style.animation = `explode 1s forwards`;
+                    sparkle.style.transform = `rotate(${i * 36}deg) translateX(100px)`;
+                    document.body.appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 1000);
+                }
+            });
+        });
+        
+        // Add CSS for explosion
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explode {
+                from { 
+                    opacity: 1; 
+                    transform: rotate(var(--rotation)) translateX(0);
+                }
+                to { 
+                    opacity: 0; 
+                    transform: rotate(var(--rotation)) translateX(200px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
