@@ -62,25 +62,29 @@
         
         .trolley {
             position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 150px;
+            top: 200px;
+            right: 200px;
+            width: 120px;
             height: 80px;
-            background: #C0C0C0;
-            border: 3px solid #696969;
+            background: linear-gradient(to bottom, #D3D3D3 0%, #A9A9A9 50%, #808080 100%);
+            border: 4px solid #4B4B4B;
+            border-radius: 10px;
             transform-origin: top center;
             animation: trolleySwing 4s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         
         .trolley::before {
             content: '';
             position: absolute;
-            top: -50px;
+            top: -150px;
             left: 50%;
-            width: 2px;
-            height: 50px;
-            background: #8B4513;
+            width: 5px;
+            height: 150px;
+            background: linear-gradient(to bottom, #8B4513 0%, #654321 100%);
             transform: translateX(-50%);
+            border: 1px solid #5C4033;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
         }
         
         .trolley::after {
@@ -89,7 +93,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 40px;
+            font-size: 60px;
+        }
+        
+        /* Rope attachment point */
+        .rope-attachment {
+            position: absolute;
+            top: 50px;
+            right: 200px;
+            width: 20px;
+            height: 20px;
+            background: #4B4B4B;
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            z-index: 20;
         }
         
         @keyframes trolleySwing {
@@ -195,6 +212,9 @@
         <div class="pants" style="left: 40%; animation-delay: 0.5s;"></div>
         <div class="pants" style="left: 60%; animation-delay: 1s;"></div>
         <div class="pants" style="left: 80%; animation-delay: 1.5s;"></div>
+        
+        <!-- Rope attachment point -->
+        <div class="rope-attachment"></div>
         
         <!-- Hanging trolley -->
         <div class="trolley"></div>
