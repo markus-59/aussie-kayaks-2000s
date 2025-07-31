@@ -62,6 +62,31 @@
         <font color="#FF0000" size="3"><blink>SITE UNDER CONSTRUCTION - CHECK BACK DAILY FOR NEW DEALS!</blink></font>
     </center>
 
+    <!-- EPIC MUSIC PLAYER -->
+    <center>
+        <div id="music-player" style="margin: 20px auto; padding: 20px; background: linear-gradient(45deg, #FF00FF, #00FFFF); border: 5px ridge #FFD700; width: 500px; box-shadow: 0 0 30px #FF00FF;">
+            <h3 class="fire-text">🎵 PUMP UP THE JAMS! 🎵</h3>
+            <button id="play-button" style="
+                background: linear-gradient(to bottom, #FFD700, #FFA500);
+                border: 5px outset #FFD700;
+                color: #000000;
+                font-family: 'Comic Sans MS', cursive;
+                font-size: 28px;
+                font-weight: bold;
+                padding: 20px 40px;
+                cursor: pointer;
+                text-shadow: 2px 2px 4px #FFFFFF;
+                animation: pulse 1s infinite;
+                border-radius: 50px;
+            " onclick="toggleMusic()">
+                ▶️ PLAY EPIC KAYAK ANTHEM!
+            </button>
+            <br><br>
+            <font size="3" color="#FFFF00"><blink>WARNING: EXTREME MUSIC AHEAD!</blink></font>
+            <audio id="epic-audio" src="Ocean Man Cover Parody.mp3" preload="auto"></audio>
+        </div>
+    </center>
+
     <!-- Main content area -->
     <table width="100%" border="0" cellpadding="20">
         <tr>
@@ -141,8 +166,8 @@
                     <tr>
                         <td bgcolor="#FF00FF">
                             <center>
-                            <h3>The MEGA DESTROYER 3000</h3>
-                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <h3>The GOOFY SUPREME</h3>
+                            <img src="Kayak pics/Goofy Kayaks.jpg" width="200" height="150" style="object-fit: cover;">
                             <br><br>
                             <font size="5" color="#FF0000"><s>$2999.99</s></font><br>
                             <font size="6" color="#00FF00"><blink>NOW ONLY $29.99!!!</blink></font><br>
@@ -151,8 +176,8 @@
                         </td>
                         <td bgcolor="#00FFFF">
                             <center>
-                            <h3>The SPEED DEMON XL</h3>
-                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <h3>The LAUGH MOBILE</h3>
+                            <img src="Kayak pics/Funny Kayak Pics.jpg" width="200" height="150" style="object-fit: cover;">
                             <br><br>
                             <font size="5" color="#FF0000"><s>$3999.99</s></font><br>
                             <font size="6" color="#FF00FF"><blink>NOW ONLY $39.99!!!</blink></font><br>
@@ -163,8 +188,8 @@
                     <tr>
                         <td bgcolor="#FFFF00">
                             <center>
-                            <h3>The FAMILY FLOATER</h3>
-                            <img src="https://web.archive.org/web/20090829035835im_/http://geocities.com/Yosemite/Rapids/2848/kayak.gif" width="150">
+                            <h3>TINY DOGGO CANOE</h3>
+                            <img src="Kayak pics/Cute Mini Dog Canoe.webp" width="200" height="150" style="object-fit: cover;">
                             <br><br>
                             <font size="5" color="#FF0000"><s>$1999.99</s></font><br>
                             <font size="6" color="#0000FF"><blink>NOW ONLY $19.99!!!</blink></font><br>
@@ -173,12 +198,12 @@
                         </td>
                         <td bgcolor="#FFA500">
                             <center>
-                            <h3>The MYSTERY KAYAK???</h3>
-                            <img src="https://web.archive.org/web/20090829002308im_/http://geocities.com/Area51/Hollow/1883/alienufo.gif" width="150">
+                            <h3>The WEIGHT WATCHER</h3>
+                            <img src="Kayak pics/Canoeing Weight Limit Meme.gif" width="200" height="150" style="object-fit: cover;">
                             <br><br>
                             <font size="5" color="#FF0000"><s>$?????.??</s></font><br>
                             <font size="6" color="#00FF00"><blink>NOW ONLY $9.99!!!</blink></font><br>
-                            <input type="button" value="RISK IT!!!" onclick="alert('You have unlocked the ALIEN KAYAK! It floats... IN SPACE!')">
+                            <input type="button" value="RISK IT!!!" onclick="alert('WARNING: May exceed weight limits! But who cares? YOLO!')">
                             </center>
                         </td>
                     </tr>
@@ -450,6 +475,48 @@ WebSurfer99: "First! Also, great site!"
                 scale: 1,
                 ease: "power1.inOut"
             });
+        });
+
+        // Music player functionality
+        let isPlaying = false;
+        const audio = document.getElementById('epic-audio');
+        const playButton = document.getElementById('play-button');
+        
+        function toggleMusic() {
+            if (!isPlaying) {
+                audio.play();
+                playButton.innerHTML = '⏸️ PAUSE THE MADNESS!';
+                playButton.style.background = 'linear-gradient(to bottom, #FF0000, #CC0000)';
+                isPlaying = true;
+                
+                // Add dancing animation to the music player
+                gsap.to("#music-player", {
+                    duration: 0.5,
+                    scale: 1.1,
+                    rotation: 5,
+                    yoyo: true,
+                    repeat: -1,
+                    ease: "power1.inOut"
+                });
+            } else {
+                audio.pause();
+                playButton.innerHTML = '▶️ PLAY EPIC KAYAK ANTHEM!';
+                playButton.style.background = 'linear-gradient(to bottom, #FFD700, #FFA500)';
+                isPlaying = false;
+                
+                // Stop dancing animation
+                gsap.killTweensOf("#music-player");
+                gsap.set("#music-player", { scale: 1, rotation: 0 });
+            }
+        }
+        
+        // Auto-restart when song ends
+        audio.addEventListener('ended', function() {
+            isPlaying = false;
+            playButton.innerHTML = '▶️ PLAY EPIC KAYAK ANTHEM!';
+            playButton.style.background = 'linear-gradient(to bottom, #FFD700, #FFA500)';
+            gsap.killTweensOf("#music-player");
+            gsap.set("#music-player", { scale: 1, rotation: 0 });
         });
     </script>
 
