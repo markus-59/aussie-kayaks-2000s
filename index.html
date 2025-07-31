@@ -147,14 +147,14 @@
                 <center>
                     <h2 class="gradient-bg">🌊 WITNESS THE EPIC KAYAK ROLL! 🌊</h2>
                     <div id="roll-container" style="position: relative; width: 600px; height: 400px; margin: 30px auto; border: 5px ridge #00FFFF; background-color: #87CEEB; overflow: hidden;">
-                        <img id="roll-img-1" class="roll-image" src="Roll/Photo 1.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-2" class="roll-image" src="Roll/Photo 2.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-3" class="roll-image" src="Roll/Photo 3.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-4" class="roll-image" src="Roll/Photo 4.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-5" class="roll-image" src="Roll/Photo 5.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-6" class="roll-image" src="Roll/Photo 6.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-7" class="roll-image" src="Roll/Photo 7.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
-                        <img id="roll-img-8" class="roll-image" src="Roll/Photo 8.jpg" style="position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0;">
+                        <img id="roll-img-1" class="roll-image" src="Roll/Photo 1.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-2" class="roll-image" src="Roll/Photo 2.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-3" class="roll-image" src="Roll/Photo 3.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-4" class="roll-image" src="Roll/Photo 4.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-5" class="roll-image" src="Roll/Photo 5.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-6" class="roll-image" src="Roll/Photo 6.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-7" class="roll-image" src="Roll/Photo 7.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
+                        <img id="roll-img-8" class="roll-image" src="Roll/Photo 8.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;">
                     </div>
                     <font size="4" color="#FF00FF"><blink>EXTREME ROLLING ACTION!</blink></font>
                 </center>
@@ -230,7 +230,7 @@
                     <tr>
                         <td>
                             <font face="Arial" size="3">
-                                Founded in 1997 by extreme sports enthusiast BRAD "THE PADDLE" JOHNSON, 
+                                Founded in 1997 by extreme sports enthusiasts, 
                                 Kayak Kingdom has been serving the RADICAL kayaking community for over 
                                 <blink>5 YEARS!!!</blink><br><br>
                                 
@@ -296,7 +296,7 @@ WebSurfer99: "First! Also, great site!"
                 <font size="2">Cool Site Award</font><br><br>
                 
                 <img src="https://web.archive.org/web/20090829091529im_/http://geocities.com/Heartland/6459/award.gif"><br>
-                <font size="2">Brad's Pick!</font><br><br>
+                <font size="2">Editor's Choice!</font><br><br>
                 
                 <h3>SPONSORS!</h3>
                 <img src="https://web.archive.org/web/20090821155711im_/http://www.geocities.com/Heartland/Hills/5115/netscap4.gif"><br>
@@ -335,7 +335,7 @@ WebSurfer99: "First! Also, great site!"
             // Create GSAP timeline for the kayak roll animation
             const rollTimeline = gsap.timeline({ repeat: -1 }); // -1 means infinite loop
             
-            // Add underwater overlay div
+            // Add underwater overlay div BEHIND content
             const underwaterOverlay = document.createElement('div');
             underwaterOverlay.id = 'underwater-overlay';
             underwaterOverlay.style.cssText = `
@@ -345,18 +345,18 @@ WebSurfer99: "First! Also, great site!"
                 width: 100%;
                 height: 100%;
                 pointer-events: none;
-                z-index: 999;
+                z-index: 1;
                 opacity: 0;
                 background: linear-gradient(to bottom, 
-                    rgba(0, 50, 100, 0.7) 0%,
-                    rgba(0, 80, 150, 0.8) 30%,
-                    rgba(0, 60, 120, 0.9) 60%,
-                    rgba(0, 30, 60, 0.95) 100%
+                    rgba(0, 50, 100, 0.4) 0%,
+                    rgba(0, 80, 150, 0.5) 30%,
+                    rgba(0, 60, 120, 0.6) 60%,
+                    rgba(0, 30, 60, 0.7) 100%
                 );
             `;
-            document.body.appendChild(underwaterOverlay);
+            document.body.insertBefore(underwaterOverlay, document.body.firstChild);
 
-            // Add sunlight overlay div
+            // Add sunlight overlay div BEHIND content
             const sunlightOverlay = document.createElement('div');
             sunlightOverlay.id = 'sunlight-overlay';
             sunlightOverlay.style.cssText = `
@@ -366,7 +366,7 @@ WebSurfer99: "First! Also, great site!"
                 width: 100%;
                 height: 100%;
                 pointer-events: none;
-                z-index: 998;
+                z-index: 1;
                 opacity: 0;
                 background: radial-gradient(circle at 30% 20%, 
                     rgba(255, 255, 200, 0.4) 0%,
@@ -374,7 +374,63 @@ WebSurfer99: "First! Also, great site!"
                     transparent 70%
                 );
             `;
-            document.body.appendChild(sunlightOverlay);
+            document.body.insertBefore(sunlightOverlay, document.body.firstChild);
+            
+            // Create bubble container
+            const bubbleContainer = document.createElement('div');
+            bubbleContainer.id = 'bubble-container';
+            bubbleContainer.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+                overflow: hidden;
+                display: none;
+            `;
+            document.body.insertBefore(bubbleContainer, underwaterOverlay.nextSibling);
+            
+            // Function to create bubbles
+            function createBubble() {
+                const bubble = document.createElement('div');
+                const size = Math.random() * 40 + 10;
+                const startX = Math.random() * window.innerWidth;
+                
+                bubble.style.cssText = `
+                    position: absolute;
+                    bottom: -100px;
+                    left: ${startX}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(100, 200, 255, 0.4));
+                    border-radius: 50%;
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    opacity: 0.7;
+                `;
+                
+                bubbleContainer.appendChild(bubble);
+                
+                // Animate bubble floating up with wobble
+                gsap.to(bubble, {
+                    duration: Math.random() * 5 + 5,
+                    y: -(window.innerHeight + 200),
+                    x: `+=${Math.sin(Math.random() * Math.PI) * 50}`,
+                    ease: "none",
+                    onComplete: () => bubble.remove()
+                });
+                
+                gsap.to(bubble, {
+                    duration: 2,
+                    x: `+=${Math.random() * 100 - 50}`,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+            
+            let bubbleInterval;
             
             // Function to create environmental effects
             function setEnvironment(phase) {
@@ -398,14 +454,13 @@ WebSurfer99: "First! Also, great site!"
                         filter: "brightness(0.7) contrast(1.2) saturate(1.5)",
                         ease: "power2.inOut"
                     });
-                    // Add subtle wave motion
-                    gsap.to("body", {
-                        duration: 2,
-                        backgroundPosition: "0 10px",
-                        repeat: -1,
-                        yoyo: true,
-                        ease: "sine.inOut"
-                    });
+                    // Show bubbles
+                    document.getElementById('bubble-container').style.display = 'block';
+                    bubbleInterval = setInterval(createBubble, 300);
+                    // Create initial bubbles
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(createBubble, i * 100);
+                    }
                 } else if (phase === 'surface') {
                     // Surface/sunlight effect
                     gsap.to("#underwater-overlay", {
@@ -426,8 +481,15 @@ WebSurfer99: "First! Also, great site!"
                         filter: "brightness(1.2) contrast(1.1) saturate(1.2)",
                         ease: "power2.inOut"
                     });
-                    gsap.killTweensOf("body");
-                    gsap.set("body", { backgroundPosition: "0 0" });
+                    // Hide bubbles
+                    if (bubbleInterval) {
+                        clearInterval(bubbleInterval);
+                        bubbleInterval = null;
+                    }
+                    setTimeout(() => {
+                        document.getElementById('bubble-container').style.display = 'none';
+                        document.getElementById('bubble-container').innerHTML = '';
+                    }, 1000);
                 }
             }
             
@@ -481,6 +543,7 @@ WebSurfer99: "First! Also, great site!"
         let isPlaying = false;
         const audio = document.getElementById('epic-audio');
         const playButton = document.getElementById('play-button');
+        audio.volume = 0.25; // Set volume to 25%
         
         function toggleMusic() {
             if (!isPlaying) {
